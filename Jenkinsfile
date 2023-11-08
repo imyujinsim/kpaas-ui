@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     sh """
-             cat <<EOF > deploy.yaml
+             cat <<EOF > ./yaml/deploy.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -98,7 +98,7 @@ spec:
                     git url: 'https://github.com/imyujinsim/kpaas-argocd', branch: "main", credentialsId: 'github'
                     withCredentials(credentialsId: 'github') {
                         sh """
-git add .
+git add ./yaml/deploy.yaml
 git commit -m 'deploy'
 git push origin master
 """
