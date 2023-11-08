@@ -38,18 +38,18 @@ pipeline {
         
         stage('Make Docker Image and Push') {
             steps {
-                sh """
-                cat > Dockerfile << EOF
-                FROM openjdk:11-jre-slim
-                ADD ./target/${env.JOB_NAME}.war /home/${env.JOB_NAME}.war
-                CMD ["nohup", "java", "-jar, "/home/${env.JOB_NAME}.war"]
-                EOF
-                """
+                script {
+                    sh """
+                    cat > Dockerfile << EOF
+                    FROM openjdk:11-jre-slim
+                    ADD ./target/${env.JOB_NAME}.war /home/${env.JOB_NAME}.war
+                    CMD ["nohup", "java", "-jar, "/home/${env.JOB_NAME}.war"]
+                    """
 
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                docker.build("$repository:$BUILD_NUMBER")
-                sh "docker push $repository:$BUILD_NUMBER"
-                sh "docker rmi $repository:$BUILD_NUMBER"
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                    docker.build("$repository:$BUILD_NUMBER")
+                    sh "docker push $repository:$BUILD_NUMBER"
+                    sh "docker rmi $repository:$BUILD_NUMBER"
             }
         }
     }
