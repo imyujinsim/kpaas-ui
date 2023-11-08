@@ -50,6 +50,7 @@ pipeline {
                     docker.build("$repository:$BUILD_NUMBER")
                     sh "docker push $repository:$BUILD_NUMBER"
                     sh "docker rmi $repository:$BUILD_NUMBER"
+                }
             }
         }
     }
