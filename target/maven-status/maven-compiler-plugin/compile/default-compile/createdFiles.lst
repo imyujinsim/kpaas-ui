@@ -1,0 +1,15 @@
+kpaas\msa\common\KpaasExcepHndlr.class
+kpaas\msa\common\CommonUtil.class
+kpaas\msa\common\KpaasOthersExcepHndlr.class
+kpaas\msa\common\RestClient.class
+kpaas\msa\service\BoardService.class
+kpaas\msa\service\impl\BoardServiceImpl.class
+kpaas\msa\service\impl\UserServiceImpl.class
+kpaas\msa\controller\BoardController.class
+kpaas\msa\controller\CommentController.class
+kpaas\msa\common\AuthAspect.class
+kpaas\msa\service\CommentService.class
+kpaas\msa\controller\UserController.class
+kpaas\msa\common\RedirectException.class
+kpaas\msa\service\UserService.class
+kpaas\msa\service\impl\CommentServiceImpl.class

@@ -1,0 +1,10 @@
+---
+applications:
+- name: edu-msa-comment
+  memory: 1024M
+  host: edu-msa-comment
+  path: ./target/edu-msa-comment-1.0.0.war
+  buildpack: java_buildpack
+env:
+  JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+  

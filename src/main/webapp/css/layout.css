@@ -1,0 +1,396 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Noto Sans Light'), local('NotoSansKR-Light'),
+    url(../font/Noto_Sans_KR/NotoSansKR-Light.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans Regular'), local('NotoSansKR-Regular'),
+    url(../font/Noto_Sans_KR/NotoSansKR-Regular.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Noto Sans Medium'), local('NotoSans-Medium'),
+    url(../font/Noto_Sans_KR/NotoSansKR-Medium.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+    url(../font/Noto_Sans_KR/NotoSansKR-Bold.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Regular'), local('Roboto-Regular'),
+    url(../font/Roboto/Roboto-Regular.ttf) format('ttf'),
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Roboto Medium'), local('Roboto-Medium'),
+    url(../font/Roboto/Roboto-Medium.ttf) format('ttf');
+}
+
+
+*, :before, :after { margin: 0; padding: 0; border: 0; font-style: normal; vertical-align: top; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+html { -webkit-font-smoothing: antialiased; }
+
+table { width: 100%; border-collapse: collapse; border-spacing: 0; table-layout: fixed;}
+
+th, td { vertical-align: middle; word-break: break-word; white-space: nowrap; }
+
+ul, ol, dl { list-style: none; word-break: keep-all; }
+
+hr { display: none; }
+
+caption, figcaption, legend { overflow: hidden; position: absolute; z-index: -1; height: 0; visibility: hidden; }
+
+h1, h2, h3, h4, h5, h6, strong { font-weight: 500; }
+
+a { color: #333; text-decoration: none; }
+
+a:hover, a:focus { text-decoration: none; }
+
+button { padding: 0; border: 0; cursor: pointer; background: none; vertical-align: middle; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; color: #747474; outline: none; }
+
+select { -webkit-appearance: none; -moz-appearance: none; appearance: none; color: #747474; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; min-width: 120px; height: 40px; padding-left: 7px; padding-right: 40px; font-size: 16px; line-height: 38px; vertical-align: top; background-color: #fff; border: 1px solid #d1d1d1; }
+
+select:focus { border: 1px solid #000; }
+
+select:disabled { background-color: #f2f2f2; color: #999; }
+
+select::-ms-expand { display: none; }
+
+input { margin: 0; padding: 0; font-family: inherit; font-size: inherit; color: #333; line-height: 38px; vertical-align: top; -webkit-appearance: none; border-radius: 0; outline: none; font-weight:300; }
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="file"] { height: 36px; padding: 010px; font-size: 16px; font-weight: 100; line-height: 34px; background-color: #fff; border: 1px solid #d1d1d1; -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; border-radius: 0; }
+
+input[type="text"]:disabled, input[type="text"][readonly], input[type="password"]:disabled, input[type="password"][readonly], input[type="tel"]:disabled, input[type="tel"][readonly], input[type="file"]:disabled, input[type="file"][readonly] { background-color: #f2f2f2; color: #999; }
+
+input[type="radio"] { position: absolute; z-index: -1; visibility: hidden; width: 18px; height: 18px; }
+
+input[type="checkbox"] { position: absolute; z-index: -1; visibility: hidden; width: 18px; height: 18px; }
+
+input[type="checkbox"] + label { position: relative; display: inline-block; overflow: hidden; width: 18px; height: 18px; text-indent: -9999em; border: 1px solid #ccc; vertical-align: middle; cursor: pointer; }
+
+input[type="checkbox"]:checked + label { border: 1px solid #5e45d8; background-color: #5e45d8; }
+
+input[type="checkbox"]:checked + label:after { content: ''; position: absolute; top: 4px; left: 6px; width: 4px; height: 6px; border-right: 1px solid #ffffff; border-bottom: 1px solid #ffffff; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+
+input[type="radio"] + label { position: relative; display: inline-block; overflow: hidden; height: 18px; padding-left: 22px; color: #444; font-size: 14px; line-height: 18px; vertical-align: middle; cursor: pointer; }
+
+input[type="radio"] + label:after { content: ''; position: absolute; left: 0; top: 0; width: 18px; height: 18px; text-indent: -9999em; border: 1px solid #ccc; border-radius: 9px; }
+
+input[type="radio"] + label:checked + label { color: #000; }
+
+input[type="radio"] + label:checked + label:after { border: 1px solid #000; }
+
+input[type="radio"] + label:checked + label:before { content: ''; position: absolute; left: 4px; top: 4px; width: 10px; height: 10px; text-indent: -9999em; background: #000; border-radius: 6px; }
+
+input[type="radio"].noText + label { position: relative; display: inline-block; overflow: hidden; width: 18px; height: 18px; text-indent: -9999em; border: 1px solid #ccc; vertical-align: middle; cursor: pointer; }
+
+input[type="radio"].noText + label:checked + label { border: 1px solid #40cecd; }
+
+input[type="radio"].noText + label:checked + label:after { content: ''; position: absolute; top: 0; left: 5px; width: 6px; height: 12px; border-right: 2px solid #40cecd; border-bottom: 2px solid #40cecd; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+
+textarea { -webkit-appearance: none; border-radius: 0; border: 1px solid #d1d1d1; color: #222; font-weight: 300; background: #fff; padding: 15px 10px; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; font-size: 16px; width: 100%; min-height: 80px; -webkit-box-sizing: border-box; box-sizing: border-box; resize: none; }
+
+::-webkit-input-placeholder { color: #ccc; font-weight: 300; opacity: 1; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; }
+
+::-moz-placeholder { color: #ccc; font-weight: 300; opacity: 1; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; }
+
+:-ms-input-placeholder { color: #ccc; font-weight: 300; opacity: 1; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; }
+
+::-ms-input-placeholder { color: #ccc; font-weight: 300; opacity: 1; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; }
+
+::placeholder { color: #ccc; font-weight: 300; opacity: 1; font-family: 'Noto Sans KR',"맑은고딕",sans-serif; }
+
+
+/*input[type=time]: : -webkit-datetime-edit-ampm-fielddisplay: none*/
+body { font-family: 'Noto Sans KR',"맑은고딕",sans-serif; font-weight: 300; font-size: 15px; color: #333; line-height: normal; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+#wrap { min-width: 1100px; height: 100%; overflow-x: hidden; }
+
+/*요소숨김*/
+.blind { overflow: hidden; position: absolute; z-index: -1; height: 0; visibility: hidden; }
+
+/*------------------- Header -------------------*/
+
+header {padding-top:15px; border-bottom:2px solid #ff7e00;}
+header > div {width:1110px; margin:0 auto; height:115px;}
+/* logo */
+header div h1 {float:left; padding-top:51px;}
+header div h1 a {display:block;}
+/* login */
+header div div {float:right; padding-top:51px; display:flex; font-weight:500;}
+header div div a {display: block; position:relative; font-size:17px; margin-left:40px;}
+header div div a:first-child {margin-left:0;}
+header div div a.on {color: #ff7e00;}
+header div div a:before {content:""; width:1px; height:12px; background-color:#ebebeb; position:absolute; top:8px; left:-20px;}
+header div div a:first-child:before {content:""; width:0;}
+
+/*------------------- // Header -------------------*/
+
+/*------------------- Container -------------------*/
+#content {width:1110px; margin:0 auto;}
+
+/* search */
+.searchBar {display:flex; justify-content: space-between; margin-top:80px; font-size:15px; line-height:40px;}
+.searchBar > div span {font-weight:500; color:#ff7e00;}
+.searchBar fieldset {position:relative; overflow:hidden;}
+.searchBar fieldset select {width:146px; line-height:38px; height:40px; cursor: pointer; border:1px solid #e0e0e0; color:#666; float:left; font-size:16px; padding-left:10px; font-family:"Noto Sans KR", sans-serif; font-weight:300; margin-right:10px;}
+.searchBar fieldset:before {content:""; width:0px; height:0px; border-top: 4px solid #111; border-bottom:4px solid none; border-right:4px solid transparent; border-left:4px solid transparent; position:absolute; top:18px; left:126px; cursor: pointer;}
+.searchBar fieldset div {float:right; border:1px solid #e0e0e0;}
+.searchBar fieldset input {width:272px; height:38px; line-height:1.3; padding-left:10px; float:left; border:0; font-weight:500;}
+.searchBar fieldset div button {text-indent:-9999px; background:url("../images/search_icon.png") no-repeat 0 0; background-position:50%; width:50px; height:38px; float:left;}
+/* table */
+table {margin-top:20px;}
+table tr {text-align:center;}
+table tr th {border-top:2px solid #000; border-bottom:1px solid #000; line-height:46px;}
+table tr td {border-bottom:1px solid #ebebeb;  padding:13px 5px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; font-family: "Roboto"; font-weight:400;}
+table tr td a {display:block; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; text-align:left; padding: 0 20px;}
+
+/* paging */
+.paging {display:flex; justify-content:center; margin-top:70px; margin-bottom:80px; font-family: "Roboto"; font-weight:600; }
+.paging a {display:block; margin-left:15px; padding-left:15px; color:#666;position:relative; font-size:15px;}
+.paging a:nth-child(3) {margin-left:0px;}
+.paging a.on {color:#ff6700; text-decoration: underline;}
+.paging a:nth-child(n+4):not(.last):before {content:""; width:1px; height:13px; background-color:#ebebeb; position:absolute; top:8px; left:0px;}
+
+.paging .first {width:20px; height:20px; text-indent:-9999px; position:relative; margin-left:0; padding-left:0;}
+.paging .first:before {content:""; width:7px; height:7px; border-top:1px solid #333; border-left:1px solid #333; transform:rotate(-45deg); position:absolute; top:8px; left:5px;}
+.paging .first:after {content:""; width:7px; height:7px; border-top:1px solid #333; border-left:1px solid #333; transform:rotate(-45deg); position:absolute; top:8px; left:11px;}
+
+.paging .prev {width:20px; height:20px; text-indent:-9999px; position:relative; margin-left:0;padding-left:0;}
+.paging .prev:before {content:""; width:7px; height:7px; border-top:1px solid #333; border-left:1px solid #333; transform:rotate(-45deg); position:absolute; top:8px; left:7px;}
+
+.paging .next {width:20px; height:20px; text-indent:-9999px; position:relative; margin-left:20px;padding-left:0;}
+#wrap .paging .next:before {content:""; width:7px; height:7px; border-top:1px solid #333; border-right:1px solid #333; transform:rotate(45deg); position:absolute; top:8px; right:7px; background-color:transparent;}
+
+.paging .last {width:20px; height:20px; text-indent:-9999px; position:relative; margin-left:0;padding-left:0;}
+.paging .last:before {content:""; width:7px; height:7px; border-top:1px solid #333; border-right:1px solid #333; transform:rotate(45deg); position:absolute; top:8px; right:5px;}
+.paging .last:after {content:""; width:7px; height:7px; border-top:1px solid #333; border-right:1px solid #333; transform:rotate(45deg); position:absolute; top:8px; right:11px;}
+
+.paging .nor {cursor: default;}
+.paging .nor:after {border-color:#ccc;}
+.paging .nor:before {border-color:#ccc;}
+
+/* 서치값 없을 때 */
+.searchno {padding-top:145px; text-align:center; padding-bottom:206px; border-bottom:1px solid #ebebeb; display:none;}
+.searchno.on {display:block;}
+.searchno dl {padding-top:72px; background:url("../../resources/img/nosearch_icon.png") no-repeat 0 0; background-position:50% top; letter-spacing: -1px;}
+.searchno dl dt {font-size:24px; line-height:30px; font-weight:500;}
+.searchno dl dt span {color:#ff7500;}
+.searchno dl dd {font-size:15px; color:#666666; line-height:25px; margin-top:15px;}
+
+
+/*------------------ Member login ------------------*/
+.login {width:1110px; margin:0 auto;}
+.login > div {padding:120px 275px 260px; text-align:center;}
+.login div .loginBox { border:1px solid #e7e7e7; padding:60px 0;}
+/* title */
+.login div .title dl dt {font-size:33px; line-height:50px; letter-spacing:-1px; text-align:center; font-weight:700;}
+.login div .title dl dd {text-align:center; margin-top:20px; margin-bottom:53px; letter-spacing: -0.7px; color:#666666;}
+/* user-login */
+.login div .user-login {margin-top:50px; width:318px; margin:0 auto;}
+.login div .user-login fieldset {height:43px; position:relative; text-align:left; overflow:hidden;}
+.login div .user-login fieldset:first-child {margin-bottom:10px;}
+.login div .user-login fieldset input {line-height:1.3; height:41px; padding-left:12px; font-size:16px; width:100%;}
+.login div .user-login fieldset input::placeholder {font-size:15px; letter-spacing:-0.5px; color:#ccc;}
+.login div .user-login fieldset button {width:19px; height:19px; background-color:#e0e0e0; border-radius:9px; text-indent:-9999px; position:absolute; top:11px; right:10px; display:none;}
+.login div .user-login fieldset button:before {content:""; width:1px; height:10px; background-color:#fff; transform:rotate(45deg); position:absolute; top:5px; left:9px;}
+.login div .user-login fieldset button:after {content:""; width:1px; height:10px; background-color:#fff; transform:rotate(-45deg); position:absolute; top:5px; left:9px;}
+.login div .user-login fieldset:hover {border-color:#333;}
+.login div .user-login fieldset:hover button {display:block;}
+/*memberBtn*/
+.login .memberBtn {display:flex; font-weight:500;}
+.login .memberBtn a {background-color:#252642; color:#fff; line-height:54px; width:100%; margin-top:32px; letter-spacing: -0.5px; font-size:17px; display:block;}
+.login .memberBtn button {background-color:#ff7e00; color:#fff; line-height:54px; width:100%; margin-top:32px; letter-spacing: -0.5px; font-size:17px; display:block; margin-left:10px;}
+
+/* 로그인 상태 유지 */
+/* .login div .user-login > div {overflow:hidden; margin-top:16px;}
+.login div .user-login div input[type="checkbox"] {position:absolute; z-index:-1; visibility:hidden; width:20px; height:20px; float:left;}
+.login div .user-login div input[type="checkbox"] + label {position:relative; overflow:hidden; width:20px; height:20px; text-indent:-9999em; border:1px solid #e0e0e0; vertical-align:middle; cursor:pointer; float:left; margin-top:5px;}
+.login div .user-login div input[type="checkbox"]:checked + label {border:1px solid #ff6700; background-color:#ff6700;}
+.login div .user-login div input[type="checkbox"] + label:before {content:''; position:absolute; top:2px; left:6px; width:6px; height:12px; border-right:2px solid #c1c1c1; border-bottom:2px solid #c1c1c1; transform:rotate(45deg);}
+.login div .user-login div input[type="checkbox"]:checked + label:after {content:''; position:absolute; top:2px; left:6px; width:6px; height:12px; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(45deg);}
+.login div .user-login div p {float:left; margin-left:7px; color:#333; letter-spacing:-0.5px; font-size:15px;} */
+/* login btn */
+/* .login div .user-login > button {background-color:#252642; color:#fff; line-height:54px; width:100%; margin-top:32px; letter-spacing: -0.5px; font-size:17px;} */
+/* member-menu */
+/* .login div .user-login .member {overflow:hidden; margin-top:21px; letter-spacing: -0.5px; font-size:15px;}
+.login div .user-login .member > a {float:left; transition:.3s;}
+.login div .user-login .member > div {float:right; overflow:hidden;}
+.login div .user-login .member > div a {float:left; transition:.3s; position:relative;}
+.login div .user-login .member > div a:first-child {margin-right:11px; padding-right:10px;}
+.login div .user-login .member > div a:first-child:after {content:""; width:1px; height:13px; background-color:#e0e0e0; position:absolute; top:9px; right:0;}
+.login div .user-login .member a:hover {color:#ff7500;} */
+
+/*------------------ Member missing password/id ------------------*/
+/* .login .search-wrap {display:none; position:fixed; top:0; left:0; align-items: center; justify-content: center; width:100%; height:100%; background-color:rgba(0, 0, 0, 0.5); z-index:2;}
+.login .search-wrap.on {display:flex;}
+.search-info {position:relative; padding:64px 32px 48px 32px; background-color:#fff;}
+.search-info .title {padding:0;}
+.login .search-info .title dl dt {font-size:23px; line-height:23px;}
+.login .search-info .title dl dd {margin-top:16px; margin-bottom:32px;}
+.search-info .user-login {padding:0;}
+.search-info .user-login .email {overflow:hidden; margin-top:10px;}
+.search-info .user-login .email input {float:left; border:1px solid #e0e0e0; line-height:38px; height:40px; font-size:14px;}
+.search-info .user-login .email {overflow:hidden;}
+.search-info .user-login .email input {width:145px; float:left; padding-left:12px;}
+.search-info .user-login .email span {margin:0 6px; float:left; line-height:40px;}
+.login .search-info .user-login > button {margin-top:24px;} */
+/* close-btn */
+/* .search-info .user-login .close {width:30px; height:30px; position:absolute; top:24px; right:24px; text-indent:-9999px;}
+.search-info .user-login .close:before {content:""; width:1px; height:20px; background-color:#141414; position:absolute; top:5px; left:15px; transform:rotate(45deg);}
+.search-info .user-login .close:after {content:""; width:1px; height:20px; background-color:#141414; position:absolute; top:5px; left:15px; transform:rotate(-45deg);}  */
+
+/*------------------ Member join ------------------*/
+#wrap .join {width:725px; margin:0 auto; padding-top:120px; padding-bottom:280px;}
+/* title */
+.join h3 {text-align:center; font-size:33px; line-height:40px; font-weight:700; letter-spacing:-1.1px; color:#111;}
+
+/*------------------ Member join detail ------------------*/
+
+/* write */
+.write {border-top:2px solid #333;}
+.write > dl {overflow:hidden; margin-top:20px; letter-spacing:-1px; line-height:38px;}
+.write > dl:first-child {margin-top:0;}
+.write > dl dt {float:left; width:143px; padding-right:10px; color:#111; letter-spacing: -0.5px; font-size:16px;}
+.write > dl dd {float:left; overflow:hidden; position:relative; width:auto;}
+.write dl dd input {height:40px; padding-left:11px; border:1px solid #e0e0e0; line-height:1.3; width:590px;}
+.write dl dd input:disabled {background-color:#fafafa; color:#666;}
+.write > dl dd textarea {width:590px; height:300px;}
+.write dl dd > p {font-size:15px; word-spacing:1.5px; color:#666666; line-height:20px; margin-top:5px;}
+.write .id dd button {float:left; width:93px; height:40px; line-height:40px; text-align:center; background-color:#666; color:#fff; font-weight:500; font-size:15px; border-radius:3px; margin-left:5px; letter-spacing:-0.5px;}
+/* .write .repass p.incorrect {display:none;}
+.write .repass p.correct {display:none;}
+.write .repass.wrong p.incorrect {display:block; color:#ff6700; padding-left:20px; background:url("../images/point_icon.png") no-repeat 0 0; background-position:left; margin-top:5px;}
+.write .repass.right p.correct {display:block; color:#296caf;  background-position:left; margin-top:5px;}
+.write .repass.wrong input {border-color:#ff6700;} */
+
+.basic-info .write {margin-top:30px; padding:40px 30px 40px 30px;}
+.basic-info .write input {width:500px;}
+.basic-info .write .id dd input {width:500px; float:left;}
+.basic-info .write .id dd button {float:left; width:93px; text-align:center; background-color:#666; color:#fff; font-weight:500; font-size:15px; border-radius:3px; margin-left:5px; letter-spacing:-0.5px;}
+.basic-info .write .pass dd p {font-size:15px; word-spacing:1.5px; color:#666666; margin-top:8px;}
+
+/* btn */
+.btn03 {display:flex; justify-content:center;}
+.btn03 a {width:160px; line-height:52px; color:#252642; border:1px solid #252642; text-align:center; font-weight:500; display:block; font-size:17px}
+.btn03 button {margin-left:10px; width:160px; line-height:52px; border:1px solid #252642; text-align:center; font-weight:500; background-color:#252642; color:#fff; display:block; font-size:17px;}
+
+.noticeBtn {display:flex; justify-content: space-between;}
+.noticeBtn div {display:flex;}
+.editBtn {width:160px; line-height:52px; border:1px solid #252642; text-align:center; font-weight:500; background-color:#fff; color:#252642; display:block; font-size:17px;}
+.delBtn {margin-left:10px; width:160px; line-height:52px; border:1px solid #252642; text-align:center; font-weight:500; background-color:#252642; color:#fff; display:block; font-size:17px;}
+.listBtn {margin-left:10px; width:160px; line-height:52px; border:1px solid #ff7500; text-align:center; font-weight:500; background-color:#ff7500; color:#fff; display:block; font-size:17px;}
+.uploadBtn {display:flex; justify-content: flex-end;}
+.uploadBtn button {font-size:15px; color:#252642; line-height:30px; font-weight:600;}
+
+
+
+/*------------------ Notice View ------------------*/
+.detail {border-bottom:0px solid #ebebeb; margin-top:80px;}
+
+
+/* con */
+.detail .con {padding-bottom:50px;}
+.detail .con > dl {margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #ebebeb; }
+.detail .con > dl > dt {font-size:19px; line-height:30px; font-weight:500; letter-spacing:-0.7px; margin-bottom:8px;}
+.detail .con > dl > dd {overflow:hidden; letter-spacing:-0.7px;}
+.detail .con > dl > dd img {width:100%;}
+.detail .con dl dd dl {float:left; overflow:hidden; color:#666666; font-size:15px; position:relative; margin-left:16px; padding-left:18px;}
+.detail .con dl dd dl:first-child {margin-left:0; padding-left:0;}
+.detail .con dl dd dl:before {content:""; width:2px; height:10px; background-color:#ebebeb; position:absolute; top:5px; left:0;}
+.detail .con dl dd dl:first-child:before {content:""; width:0;}
+.detail .con dl dd dl dt {float:left;}
+.detail .con dl dd dl dd {float:left; margin-left:5px; padding-right:2px;}
+.detail .con img {width:100%;}
+
+
+/* editor */
+.editor {border-bottom:1px solid #ebebeb; padding-bottom:20px; margin-bottom:50px;}
+.editor h1, h2, h4, h5, h6 {line-height:120%;}
+.editor em {font-style:normal;}
+.editor ul {list-style:disc;}
+.editor ol {list-style: decimal;}
+.editor a:not(.addfile) {text-decoration: underline; color:blue;}
+.editor img {height:auto !important; max-width:100%;}
+.editor table {width:100% !important;}
+.editor table tr {text-align:left; line-height:130%;}
+.editor table tr td {padding-left:10px !important; white-space:normal; word-break: keep-all; border-left:1px solid #ebebeb;}
+.editor table tr td:first-child {border-right:1px solid #ebebeb;}
+#wrap .editor table td a {display:inline; white-space: normal; word-break: break-all; padding-left:0;}
+.editor blockquote {padding:2px 8px 2px 20px; font-style:italic; font-family: Georgia, Times, "Times New Roman", serif; border-left:5px solid #ccc;}
+.editor .marker {background-color:yellow;}
+
+.comment-wrap {margin-top:80px; border-top:2px solid #000; padding-top:80px;}
+.comment-wrap .comment {margin-bottom:20px; color:#666;}
+.comment-wrap .comment textarea {margin-top:10px;}
+.comment-wrap ul li {display:flex; padding:13px 5px;  border-bottom:1px dashed #ebebeb; line-height:30px;}
+.comment-wrap ul li:first-child {border-top:1px dashed #ebebeb;}
+.comment-wrap ul li dl {display:flex;}
+.comment-wrap ul li dl dt {width:800px; margin-right:50px;}
+.comment-wrap ul li dl dt div {display:none; padding-bottom:30px; position:relative;}
+.comment-wrap ul li dl dt.on div {display:block;}
+.comment-wrap ul li dl dt.on p {display:none;}
+.comment-wrap ul li dl dt.on div a {font-size:15px; color:#252642; line-height:30px; font-weight:600; position:absolute; bottom:0; right:10px;}
+.comment-wrap ul li dl dd {color:#999; display:flex; align-items: center;}
+
+.commentBtn {display:flex; margin-left:30px;}
+.commentBtn button {font-size:15px; color:#252642; line-height:30px; font-weight:600;}
+.commentBtn button:last-child {color:#ff7500; margin-left:10px; }
+
+.noticeWrite {padding: 80px 0;}
+.noticeWrite > div {padding: 0 100px;}
+.noticeWrite > div h5 {font-size:33px; line-height:50px; letter-spacing:-1px; text-align:center; font-weight:700;}
+.noticeWrite div .write {margin-top:60px; padding:30px 68px 0; margin-bottom:80px;}
+.noticeWrite div .write dl dd input {width:630px; font-weight:300;}
+.noticeWrite div .write dl dd textarea {width:630px;}
+
+
+/*------------------ Footer ------------------*/
+footer {border-top:1px solid #ebebeb; position:relative; padding-bottom:50px;}
+footer:before {content:""; width:100%; height:1px; background-color:#ebebeb; position:absolute; top:60px; left:0; }
+footer > div {width:1110px; margin:0 auto;}
+footer > div > div {overflow:hidden; font-size:15px; font-weight:200;}
+footer div .company ul {float:left; overflow:hidden;}
+footer div .company ul li {float:left; margin-left:15px; padding-left:15px; line-height:60px; position:relative;}
+footer div .company ul li:first-child {margin-left:0; padding-left:0;}
+footer div .company ul li:before {content:""; width:2px; height:10px; background-color:#ebebeb; position:absolute; top:24px; left:0;}
+footer div .company ul li:first-child:before {content:""; width:0;}
+footer div .company ul li a:hover {text-decoration:underline;}
+footer div .company > div {float:right; overflow:hidden; margin-top:48px;} //여기 고치면 벌어짐
+
+footer div .company > div > a {float:left;}
+footer div .company > div > a:first-child {margin-right:55px; position:relative;}
+footer div .company > div > a:first-child:after {content:""; width:2px; height:10px; background-color:#ebebeb; position:absolute; top:4px; left:37px;}
+
+footer div .company-info {padding-top:37px; padding-left:150px; line-height:25px; letter-spacing:-0.5px; background:url("../images/footer_logo.png") no-repeat 0 0; background-position:0 43px; color:#a0a0a0;}
+footer div .company-info > div {display:flex;}
+footer div .company-info > div h5 {font-size:15px; font-weight:200; position:relative; padding-right:10px; margin-right:7px; line-height:25px;}
+footer div .company-info > div h5:after {content:""; width:1px; height:10px; background-color:#ebebeb; position:absolute; top:8px; right:0;}
+footer div .company-info > div address {position:relative; padding-right:10px; margin-right:7px;}
+footer div .company-info > div address:after {content:""; width:1px; height:10px; background-color:#ebebeb; position:absolute; top:8px; right:0;}
+footer div .company-info > div dl {display:flex;}
+footer div .company-info > div dl dt {margin-right:5px;}
+footer div .company-info > div dl:last-child {padding-left:7px; margin-left:10px; position:relative;}
+footer div .company-info > div dl:last-child:before {content:""; width:1px; height:10px; background-color:#ebebeb; position:absolute; top:8px; left:0;}
+footer div .company-info > div a {color:#a0a0a0;}
+footer div .company-info > div a:hover {text-decoration:underline;}
+footer div .company-info p {margin-top:5px; font-weight:100; letter-spacing:-0.2px;}
+/*------------------ // Footer ------------------*/

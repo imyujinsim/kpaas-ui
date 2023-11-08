@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/board.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/boardDetail.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/boardInsert.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/boardUpdate.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/join.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/login.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/userInfo.jsp=UTF-8
