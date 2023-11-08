@@ -6,7 +6,7 @@ pipeline {
     }
     
     environment {
-        repository = imyujinsim/edu-msa-ui
+        repository = imyujinsim/ui
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         dockerImage = '' 
     }
