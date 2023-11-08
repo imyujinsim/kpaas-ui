@@ -97,7 +97,7 @@ spec:
 
                     git url: 'https://github.com/imyujinsim/kpaas-argocd', branch: "main", credentialsId: 'github'
                     withCredentials([sshUserPrivateKey(credentialsId: 'github')]) {
-                        sh("git push origin imyujinsim/kpaas-argocd.git")
+                        sh("git push origin")
                     }
                 }
             }
