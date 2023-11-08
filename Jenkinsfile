@@ -100,7 +100,7 @@ spec:
                         sh """
 git add .
 git commit -m 'deploy'
-git push
+git push origin master
 """
                     }
                 }
