@@ -24,8 +24,10 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'mvn clean install'
-                        sh 'mv target/*.war target/${env.JOB_NAME}.war'
+                        sh """
+                        mvn clean install
+                        mv target/*.war target/${env.JOB_NAME}.war
+                        """
                     } catch(error) {
                         print('error')
                         sh "rm -rf /var/lib/jenkins/workspace/*"
