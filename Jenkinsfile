@@ -53,5 +53,49 @@ pipeline {
                 }
             }
         }
+
+        stage('Make yaml file') {
+            steps {
+                script {
+                    sh """
+             cat <<EOF > monthly_deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kpaas-ui-deployment
+  labels:
+    app: kpaas-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kpaas-ui
+  template:
+    metadata:
+      labels:
+        app: kpaas-ui
+    spec:
+      containers:
+      - name: kpaas-ui
+        image: docker.io/imyujinsim/edu-msa-ui:${BUILD_NUMBER}
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metedata :
+  name: kpaas-ui
+  labels:
+    app: kpaas-ui
+spec:
+  selector:
+    app: kpaas-ui
+  type: NodePort
+  port: 9090
+  targetPort: 5000 
+"""
+                }
+            }
+        }
     }
 }
