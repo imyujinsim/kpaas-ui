@@ -54,11 +54,11 @@ pipeline {
             }
         }
 
-        stage('Make yaml file') {
+        stage('Make yaml file and Push to Github') {
             steps {
                 script {
                     sh """
-             cat <<EOF > monthly_deploy.yaml
+             cat <<EOF > deploy.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -94,6 +94,11 @@ spec:
   port: 9090
   targetPort: 5000 
 """
+
+                    git url: 'https://github.com/imyujinsim/kpaas-argocd', branch: "main", credentialsId: 'github'
+                    withCredentials([sshUserPrivateKey(credentialsId: 'github')]) {
+                        sh("git push origin imyujinsim/kpaas-argocd.git")
+                    }
                 }
             }
         }
