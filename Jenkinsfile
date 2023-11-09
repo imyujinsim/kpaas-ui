@@ -41,9 +41,9 @@ pipeline {
                 script {
                     sh """
                     cat > Dockerfile << EOF
-                    FROM openjdk:11-jre-slim
+                    FROM openjdk:8-jre-slim
                     ADD ./target/${env.JOB_NAME}.war /home/${env.JOB_NAME}.war
-                    CMD ["nohup", "java", "-jar, "/home/${env.JOB_NAME}.war"]
+                    CMD ["nohup", "java", "-jar, "/home/${env.JOB_NAME}.war", "&"]
                     """
 
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
