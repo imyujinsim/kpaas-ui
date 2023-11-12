@@ -41,7 +41,7 @@ pipeline {
                 script {
                     sh """
                     cat > Dockerfile << EOF
-                    FROM openjdk:8-jre-slim
+                    FROM tomcat:9.0-jre8
                     ADD ./target/${env.JOB_NAME}.war /home/${env.JOB_NAME}.war
                     CMD ["nohup", "java", "-jar", "/home/${env.JOB_NAME}.war", "&"]
                     """
