@@ -41,9 +41,11 @@ pipeline {
                 script {
                     sh """
                     cat > Dockerfile << EOF
-                    FROM tomcat:7.0.61-jre8
-                    ADD ./target/${env.JOB_NAME}.war /home/${env.JOB_NAME}.war
-                    CMD ["nohup", "java", "-jar", "/home/${env.JOB_NAME}.war", "&"]
+FROM tomcat:7.0.61-jre8
+WORKDIR /usr/local/tomcat
+COPY server.xml ./conf
+ADD ./target/${env.JOB_NAME}.war ./webapps/${env.JOB_NAME}.war
+CMD ["nohup", "java", "-jar", "./webapps/${env.JOB_NAME}.war", "&"]
                     """
 
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
