@@ -39,7 +39,6 @@ pipeline {
         stage('Make Docker Image and Push') {
             steps {
                 script {
-                    sh "echo whoami"
                     sh """
                     cat > Dockerfile << EOF
                     FROM openjdk:8-jre-slim
