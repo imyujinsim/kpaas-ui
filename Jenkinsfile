@@ -41,10 +41,12 @@ pipeline {
                 script {
                     sh """
                     cat > Dockerfile << EOF
-FROM tomcat:7.0.61-jre8
+FROM tomcat:9-jre8-alpine
 WORKDIR /usr/local/tomcat
 COPY server.xml ./conf
-ADD ./target/${env.JOB_NAME}.war ./webapps/${env.JOB_NAME}.war
+RUN rm -rf ./webapps/*
+ARG JAR_FILE=*.war
+COPY ./target/${env.JOB_NAME}.war ./webapps/${env.JOB_NAME}.war
 CMD ["nohup", "java", "-jar", "./webapps/${env.JOB_NAME}.war", "&"]
                     """
 
