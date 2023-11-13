@@ -25,6 +25,7 @@ pipeline {
                 script {
                     try {
                         sh """
+                        echo pwd
                         mvn clean install
                         mv target/*.war target/${env.JOB_NAME}.war
                         """
