@@ -49,7 +49,7 @@ COPY pom.xml ./conf
 RUN rm -rf ./webapps/*
 ARG JAR_FILE=*.war
 COPY ./target/ROOT.war ./webapps/ROOT.war
-CMD ["nohup", "java", "-jar", "./webapps/${env.JOB_NAME}.war", "&"]
+CMD ["nohup", "java", "-jar", "./webapps/ROOT.war", "&"]
                     """
 
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
