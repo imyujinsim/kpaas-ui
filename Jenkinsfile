@@ -44,6 +44,7 @@ pipeline {
 FROM tomcat:9-jre8-alpine
 WORKDIR /usr/local/tomcat
 COPY server.xml ./conf
+COPY pom.xml ./conf
 RUN rm -rf ./webapps/*
 ARG JAR_FILE=*.war
 COPY ./target/${env.JOB_NAME}.war ./webapps/${env.JOB_NAME}.war
