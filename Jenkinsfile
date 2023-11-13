@@ -25,9 +25,9 @@ pipeline {
                 script {
                     try {
                         sh """
-                        echo pwd
+                        pwd
                         mvn clean install
-                        mv target/*.war target/${env.JOB_NAME}.war
+                        mv ./target/*.war ./target/ROOT.war
                         """
                     } catch(error) {
                         print('error')
@@ -48,7 +48,7 @@ COPY server.xml ./conf
 COPY pom.xml ./conf
 RUN rm -rf ./webapps/*
 ARG JAR_FILE=*.war
-COPY ./target/${env.JOB_NAME}.war ./webapps/${env.JOB_NAME}.war
+COPY ./target/ROOT.war ./webapps/ROOT.war
 CMD ["nohup", "java", "-jar", "./webapps/${env.JOB_NAME}.war", "&"]
                     """
 
