@@ -25,13 +25,13 @@ pipeline {
                 script {
                     try {
                         sh """
-                        cd /var/lib/jenkins/workspace/${env.JOB_NAME}
+                        cd /var/jenkins_home/workspace/${env.JOB_NAME}
                         mvn clean install
                         mv ./target/*.war ./target/ROOT.war
                         """
                     } catch(error) {
                         print('error')
-                        sh "rm -rf /var/lib/jenkins/workspace/*"
+                        sh "rm -rf /var/jenkins_home/workspace/*"
                     }
                 }
             }
