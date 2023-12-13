@@ -2,13 +2,13 @@ pipeline {
     agent any
     
     tools {
-        maven 'maven'
+        maven 'mvn'
     }
     
     environment {
         repository = 'imyujinsim/edu-msa-ui'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        GIT_AUTH = credentials('gitcd')
+        GIT_AUTH = credentials('github')
     }
     
     stages {
@@ -57,10 +57,11 @@ CMD ["nohup", "java", "-jar", "./webapps/ROOT.war", "&"]
         }
 
         stage('Create YAML File and Push it to CD Repository') {
+            environment {
+                GIT_AUTH = credentials('github')
+            }
+
             steps {
-                environment {
-        GIT_AUTH = credentials('gitcd')
-    }
                 script {
                     sh """
                         #!/bin/bash
@@ -80,7 +81,7 @@ spec:
         app: kpaas-ui
     spec:
       containers:
-      - image: 
+      - image: $repository:$BUILD_NUMBER 
         name: kpaas-ui
 EOF"""
 
