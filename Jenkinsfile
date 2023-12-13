@@ -42,6 +42,8 @@ pipeline {
             steps {
                 script {
                     sh """
+                    sudo chmod 666 /var/run/docker.sock
+
                     cat > Dockerfile << EOF
 FROM tomcat:9-jre8-alpine
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
