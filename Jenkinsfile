@@ -49,10 +49,11 @@ COPY ./target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 CMD ["nohup", "java", "-jar", "./webapps/ROOT.war", "&"]
                     """
 
-                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                    docker.build("$repository:$BUILD_NUMBER")
-                    sh "docker push $repository:$BUILD_NUMBER"
-                    sh "docker rmi $repository:$BUILD_NUMBER"
+                    app = docker.build("$repository:$BUILD_NUMBER")
+
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                        app.push("${env.BUILD_NUMBER}")
+                    }
                 }
             }
         }
