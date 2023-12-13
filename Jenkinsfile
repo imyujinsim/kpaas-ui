@@ -8,7 +8,7 @@ pipeline {
     environment {
         repository = 'imyujinsim/edu-msa-ui'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        dockerImage = '' 
+        GIT_AUTH = credentials('gitcd')
     }
     
     stages {
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     try {
                         sh """
-                        pwd
+                        cd /var/lib/jenkins/workspace/${env.JOB_NAME}
                         mvn clean install
                         mv ./target/*.war ./target/ROOT.war
                         """
@@ -43,12 +43,8 @@ pipeline {
                     sh """
                     cat > Dockerfile << EOF
 FROM tomcat:9-jre8-alpine
-WORKDIR /usr/local/tomcat
-COPY server.xml ./conf
-COPY pom.xml ./conf
-RUN rm -rf ./webapps/*
-ARG JAR_FILE=*.war
-COPY ./target/ROOT.war ./webapps/ROOT.war
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
+COPY ./target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 CMD ["nohup", "java", "-jar", "./webapps/ROOT.war", "&"]
                     """
 
@@ -56,6 +52,45 @@ CMD ["nohup", "java", "-jar", "./webapps/ROOT.war", "&"]
                     docker.build("$repository:$BUILD_NUMBER")
                     sh "docker push $repository:$BUILD_NUMBER"
                     sh "docker rmi $repository:$BUILD_NUMBER"
+                }
+            }
+        }
+
+        stage('Create YAML File and Push it to CD Repository') {
+            steps {
+                environment {
+        GIT_AUTH = credentials('gitcd')
+    }
+                script {
+                    sh """
+                        #!/bin/bash
+                        cat>deploy.yaml<<-EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kpaas-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kpaas-ui
+  template:
+    metadata:
+      labels:
+        app: kpaas-ui
+    spec:
+      containers:
+      - image: 
+        name: kpaas-ui
+EOF"""
+
+                    sh '''
+                git config user.name 'user'
+                git config user.email 'user@users.noreply.github.example.com'
+                git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
+                git push origin main https://github.com/imyujinsim/kpaas-argocd.git
+            '''
+    }
                 }
             }
         }
