@@ -326,14 +326,14 @@
                         </configuration>
                     </reportSet>
                 </reportSets>
-		<configuration>
-	            <archive>
-			<manifast>
-			    <mainClass>com.example.Main</mainClass>
-			</mainfast>
-		    </archive>
+		<configuratiopn>
+			<archive>
+				<manifast>
+					<mainClass>com.example.Main</mainClass>
+				</mainfast>
+			</archive>
 		</configuration>
-            </plugin>
+	</plugin>
             <!-- JUnit Test Results & EMMA Coverage Reporting -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
