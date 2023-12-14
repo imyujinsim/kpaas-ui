@@ -92,7 +92,9 @@ EOF"""
                 git config user.email 'user@users.noreply.github.example.com'
                 git clone https://github.com/imyujinsim/kpaas-argocd.git
                 mv deploy.yaml ./kpaas-argocd/deploy.yaml
+                cd kpaas-argocd
                 git push origin main https://$imyujinsim@github.com/imyujinsim/kpaas-argocd.git
+                cd ..
                 rm -rf kpaas-argocd
             """
     }
