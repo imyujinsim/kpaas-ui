@@ -93,6 +93,8 @@ EOF"""
                 git clone https://github.com/imyujinsim/kpaas-argocd.git
                 mv deploy.yaml ./kpaas-argocd/deploy.yaml
                 cd kpaas-argocd
+                git add .
+                git commit -m 'deploy file ${env.BUILD_NUMBER}'
                 git push origin main https://$imyujinsim@github.com/imyujinsim/kpaas-argocd.git
                 cd ..
                 rm -rf kpaas-argocd
