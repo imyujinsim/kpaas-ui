@@ -317,9 +317,9 @@
                         <id>sunlink</id>
                         <reports>
                             <report>javadoc</report>
-                        </reports>
-                        <inherited>true</inherited>
-                        <configuration>
+		    </reports>
+			<inherited>true</inherited>
+			<configuration>
                             <links>
                                 <link>http://docs.oracle.com/javase/6/docs/api/</link>
                             </links>
