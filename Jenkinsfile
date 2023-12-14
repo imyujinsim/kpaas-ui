@@ -86,12 +86,12 @@ spec:
         name: kpaas-ui
 EOF"""
 
-                    sh '''
+                    sh """
                 git config user.name 'user'
                 git config user.email 'user@users.noreply.github.example.com'
                 git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
-                git push origin main https://github.com/imyujinsim/kpaas-argocd.git
-            '''
+                git push origin main https://$GIT_AUTH_PSW@github.com/imyujinsim/kpaas-argocd.git
+            """
     }
                 }
             }
