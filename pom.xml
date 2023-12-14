@@ -326,7 +326,7 @@
                         </configuration>
                     </reportSet>
                 </reportSets>
-		<configuratiopn>
+		<configuration>
 			<archive>
 				<manifast>
 					<mainClass>com.example.Main</mainClass>
