@@ -43,7 +43,7 @@ pipeline {
                 script {
                     sh """
                     cat > Dockerfile << EOF
-FROM tomcat:9-jdk8
+FROM tomcat:8.5-jdk8
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 COPY ./target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 CMD ["nohup", "java", "-jar", "/usr/local/tomcat/webapps/ROOT.war", "&"]
