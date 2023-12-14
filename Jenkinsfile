@@ -89,8 +89,8 @@ spec:
 EOF"""
 
                     sh """
-                git config --global user.name 'jenkins'
-                git config --global user.email 'jenkins@noreply.example.com'
+                git config --global user.name 'user'
+                git config --global user.email 'user@noreply.example.com'
                 git clone https://github.com/imyujinsim/kpaas-argocd.git
                 mv deploy.yaml ./kpaas-argocd/deploy.yaml
                 cd kpaas-argocd
