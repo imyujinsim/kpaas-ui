@@ -93,6 +93,7 @@ EOF"""
                 git clone https://github.com/imyujinsim/kpaas-argocd.git
                 mv deploy.yaml ./kpaas-argocd/deploy.yaml
                 git push origin main https://$imyujinsim@github.com/imyujinsim/kpaas-argocd.git
+                rm -rf kpaas-argocd
             """
     }
                 }
