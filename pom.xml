@@ -330,7 +330,7 @@
 			<archive>
 				<manifast>
 					<mainClass>com.example.Main</mainClass>
-				</mainfast>
+				</manifast>
 			</archive>
 		</configuration>
 	</plugin>
