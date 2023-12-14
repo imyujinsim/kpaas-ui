@@ -46,7 +46,7 @@ pipeline {
 FROM tomcat:9-jre8-alpine
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 COPY ./target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
-COPY server.xml /usr/local/tomcat/conf
+COPY ./server.xml /usr/local/tomcat/conf
 ARG JAR_FILE=*.war
 CMD ["nohup", "java", "-jar", "/usr/local/tomcat/webapps/ROOT.war", "&"]
 
