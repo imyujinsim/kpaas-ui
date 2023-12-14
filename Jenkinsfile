@@ -9,6 +9,7 @@ pipeline {
         repository = 'imyujinsim/edu-msa-ui'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         GIT_AUTH = credentials('github')
+        imyujinsim = credentials('imyujinsim')
     }
     
     stages {
@@ -91,7 +92,7 @@ EOF"""
                 git config user.email 'user@users.noreply.github.example.com'
                 git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                 git pull origin master https://github.com/imyujinsim/kpaas-argocd.git
-                git push origin main https://$GIT_AUTH_PSW@github.com/imyujinsim/kpaas-argocd.git
+                git push origin main https://$imyujinsim@github.com/imyujinsim/kpaas-argocd.git
             """
     }
                 }
