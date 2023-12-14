@@ -72,6 +72,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kpaas-ui
+  namespace: kpaas
 spec:
   replicas: 1
   selector:
